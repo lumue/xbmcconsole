@@ -1,0 +1,40 @@
+<project name="xbmc-console" default="dist" basedir=".">
+    <description>
+        simple example build file
+    </description>
+    <!-- set global properties for this build -->
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+    <property name="dist"  location="dist"/>
+    <property name="version" value="0.1.0" />
+    <target name="init">
+        <!-- Create the time stamp -->
+        <tstamp/>
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build}/xbmcconsole"/>
+    </target>
+
+    <target name="copy" depends="init"
+            description="compile the source " >
+        <copydir src="${src}" dest="${build}/xbmcconsole" />
+    </target>
+
+    <target name="dist" depends="clean,copy"
+            description="generate the distribution" >
+        <zip destfile="${dist}/webinterface.xbmcconsole-${version}.zip" basedir="${build}"/>
+    </target>
+
+    <target name="clean"
+            description="clean up" >
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+    </target>
+
+    <target name="deploy" depends="copy">
+        <scp  todir="pi@192.168.1.106:~/.xbmc/addons/xbmcconsole" password="ddl85s" >
+            <fileset dir="${src}/" />
+        </scp>
+    </target>
+
+</project>
