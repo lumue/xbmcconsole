@@ -18,8 +18,21 @@ $(function () {
         url: '/jsonrpc',
 
         complete: function (data) {
-            console.log(data);
-            $("#content").html(data);
+            var response=JSON.parse(data.responseText);
+            var result=response.result.sources;
+            var resultView="<table>";
+            for(var i=0;i<result.length;i++){
+                var source=result[i];
+                var label=source.label;
+                var file=source.file;
+                resultView=resultView+"<tr><td>"+
+                                     label+
+                                     "</td><td>"+
+                                     file+
+                                     "</td></tr>";
+            }
+            resultView=resultView+"</table>";
+            $("#content").html(resultView);
         }
 
     });
