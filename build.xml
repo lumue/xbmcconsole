@@ -33,7 +33,7 @@
 
     <target name="deploy" depends="copy">
         <scp  todir="pi@192.168.1.106:~/.xbmc/addons/xbmcconsole" password="ddl85s" >
-            <fileset dir="${src}/" />
+            <fileset dir="${build}/xbmcconsole/" />
         </scp>
     </target>
 

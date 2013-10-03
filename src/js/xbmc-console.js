@@ -8,10 +8,10 @@ $(function () {
     $.ajax({
         dataType: 'jsonp',
         data: JSON.stringify({
-                                "jsonrpc":"2.0",
-                                "id":1,
-                                "method":"Files.GetSources",
-                                "params":{"media":"video"}}),
+            "jsonrpc":"2.0",
+            "id":1,
+            "method":"Files.GetSources",
+            "params":{"media":"video"}}),
         jsonp: 'jsonp_callback',
         type: 'post',
         contentType:'application/json',
@@ -19,19 +19,8 @@ $(function () {
 
         complete: function (data) {
             var response=JSON.parse(data.responseText);
-            var result=response.result.sources;
-            var resultView="<table>";
-            for(var i=0;i<result.length;i++){
-                var source=result[i];
-                var label=source.label;
-                var file=source.file;
-                resultView=resultView+"<tr><td>"+
-                                     label+
-                                     "</td><td>"+
-                                     file+
-                                     "</td></tr>";
-            }
-            resultView=resultView+"</table>";
+            var template = $('#sourcesTpl').html();
+            var resultView = Mustache.to_html(template, response.result);
             $("#content").html(resultView);
         }
 

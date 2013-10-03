@@ -2,35 +2,56 @@
 <html>
 <head>
     <title>xbmc-console</title>
+    <link rel="stylesheet" type="text/css" href="screen.css">
     <script src="lib/http_code.jquery.com_jquery-2.0.0.js"></script>
+    <script src="lib/mustache.js"></script>
 </head>
 <body>
 <div id="top">
-    <div id="menubar">
-        <div id="menu1">
-            <ul style="list-style: none">
-                <li><a href="#">Remote</a></li>
-                <li><em><a href="#">Media</a></em></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </div>
-        <div id="menu2">
-            <ul style="list-style: none">
-                <li><a href="#"><em>Sources</em></a></li>
-                <li><a href="#">Database</a></li>
-            </ul>
-        </div>
-        <div id="menu3"></div>
+    <h1>xbmc-console</h1>
+</div>
+<div id="menubar">
+    <div id="menu1">
+        <ul style="list-style: none">
+            <li><a href="#">Remote</a></li>
+            <li><em><a href="#">Media</a></em></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
     </div>
+    <div id="menu2">
+        <ul style="list-style: none">
+            <li><a href="#"><em>Sources</em></a></li>
+            <li><a href="#">Database</a></li>
+        </ul>
+    </div>
+    <div id="menu3"></div>
 </div>
 <div id="content">
 
 </div>
-<div id="bottom">
+<div id="footer">
     <div id="statusbar">
         <span id="xbmc-host-name">raspi</span>
     </div>
 </div>
+
+<script id="sourcesTpl" type="text/template">
+    <tbody>
+    {{#sources}}
+    <tr>
+        <td>{{label}}</td>
+        <td>{{file}}</td>
+    </tr>
+    {{/sources}}
+    </tbody>
+    <thead>
+    <tr>
+        <th style="width: 30%;text-align: left">name</th>
+        <th style="width: 70%;text-align: left">pfad</th>
+    </tr>
+    </thead>
+</script>
+
 <script src="js/xbmc-console.js"></script>
 </body>
 </html>

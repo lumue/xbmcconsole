@@ -1,0 +1,47 @@
+/*
+You are allowed to do whatever you want with this layout. Though I would be pleased if you placed a link on your site to csseasy.com or to profit42.com (best "blog about hacking" ever). Donations are also welcome: paypal@profit42.com (or follow the donation button on csseasy.com)
+*/
+
+body{
+    background-color:#3F3F3F;
+    font-size:16px;
+    margin:0;
+    padding:0;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+#menubar{
+    width:100%;
+    height:40px;
+}
+
+li
+{
+    float:left;
+}
+a
+{
+    display:block;
+    width:60px;
+}
+
+#top{
+    width:100%;
+    background-color:#E5DFC5;
+    color: #3F3F3F;
+    height:50px;
+}
+
+#content {
+    background-color:#3F3F3F;
+    color: #E5DFC5;
+    min-height:400px; /* for modern browsers */
+    height:auto !important; /* for modern browsers */
+}
+
+#footer {
+    clear:both;
+    color: #3F3F3F;
+    background-color:#E5DFC5;
+    height:50px;
+}
