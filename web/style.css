@@ -1,0 +1,137 @@
+/* css released under Creative Commons License -  http://creativecommons.org/licenses/by/2.0/deed.en  */
+/* html5 + CSS 3 Template created by miss monorom  http://intensivstation.ch 2013 */
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* render html5 elements as block 
+   rendert html5 elemente als block  */
+
+header, footer, section, aside, nav, article { display: block;}
+
+body {
+    background-color: #ccc;
+    font-size: 0.95em;
+    font-family: Arial, SunSans-Regular, Sans-Serif;
+    color:#E75D0F;
+}
+pre, code {
+    font-size: 1.3em;
+}
+a {color: #DB7093;}
+a:visited {color:#DB7093;}
+a:hover {color: #E75D0F;}
+a:active { color:#000000;}
+
+h1, h2 {
+    font-size:1.8em;
+    font-weight: normal;
+    margin: 0 0 20px;
+}
+
+img.download {vertical-align:middle;}
+img{border:none;}
+
+
+/* ----------container zentriert das layout-------------- */
+
+#container {
+    max-width: 1200px;
+    min-width:960px;
+    margin:10px  auto;
+    background-color: #eee;
+}
+
+/* ----------header for logo-------------- */
+header {
+    padding:20px;
+    background:#ccc ;
+}
+
+header p{
+    text-transform:uppercase;
+    font-size:11px;
+
+}
+header img{ padding: 0 0 10px;}
+
+
+/* -------------- navigavtion------------- */
+
+nav {
+    font-size: 16px;
+    background: #E75D0F;
+    color:#fff;
+}
+
+nav ul {
+    list-style-type: none;
+    margin:0;
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    display: inline-block;
+    margin:0;
+    color: #fff;
+    border-right:1px solid #97827F;
+    padding: 10px 50px;
+    text-decoration: none;}
+nav a:visited {color:#fff;}
+
+nav a:hover {
+    color: #ccc;
+}
+
+/* ----------------- content--------------------- */
+
+
+section#content {
+    float: left;
+    width: 60%;
+    padding: 20px;
+    background-color: #fff;
+    min-height:600px;
+}
+p, pre{
+    padding:  0 0 20px;
+    line-height:1.5em;
+}
+
+thead{
+    background-color: #E75D0F;
+    color:#fff;
+}
+
+tfoot{
+    background-color: #E75D0F;
+    color:#fff;
+}
+
+
+/* -------------- side infos ------------- */
+
+aside {
+    padding:20px;
+    float:right;
+    width: 25%;
+}
+
+/* -----------footer--------------------------- */
+footer {
+    padding: 20px;
+    clear:both;
+    background-color: #E75D0F;
+    color:#fff;
+}
+
+/* -----------footer--------------------------- */
+

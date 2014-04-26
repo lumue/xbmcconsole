@@ -1,57 +1,81 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>xbmc-console</title>
-    <link rel="stylesheet" type="text/css" href="screen.css">
-    <script src="lib/http_code.jquery.com_jquery-2.0.0.js"></script>
-    <script src="lib/mustache.js"></script>
+    <meta charset="utf-8" />
+    <title>mediaitems</title>
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--  html5 + CSS 3 Template created by miss monorom  http://intensivstation.ch 2011 -->
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <!-- by monorom -->
 </head>
+
 <body>
-<div id="top">
-    <h1>xbmc-console</h1>
-</div>
-<div id="menubar">
-    <div id="menu1">
-        <ul style="list-style: none">
-            <li><a href="#">Remote</a></li>
-            <li><em><a href="#">Media</a></em></li>
-            <li><a href="#">Settings</a></li>
+<div id="container">
+
+    <header>
+        <h2>mediaitems</h2>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#"><img src="icons/folder.png" height="32px"
+                                 style="vertical-align: middle;" />&nbsp;items</a></li>
+            <li style="float: right;"><a href="#"><img
+                    src="icons/gear.png" height="32px" style="vertical-align: middle;" />&nbsp;manage</a></li>
         </ul>
-    </div>
-    <div id="menu2">
-        <ul style="list-style: none">
-            <li><a href="#"><em>Sources</em></a></li>
-            <li><a href="#">Database</a></li>
-        </ul>
-    </div>
-    <div id="menu3"></div>
-</div>
-<div id="content">
+    </nav>
 
-</div>
-<div id="footer">
-    <div id="statusbar">
-        <span id="xbmc-host-name">raspi</span>
-    </div>
-</div>
+    <section id="content">
+        <article>
+            <div id="content_head">
+                <h1>
+                    <img src="icons/folder.png" height="64px"
+                         style="vertical-align: middle;" />&nbsp;items
+                </h1>
+            </div>
+            <div id="result">
+                <div id="pager">
+                    <ul style="float: right;">
+                        <li id="result_pager_back" style="display: inline;"><a href="#"><img
+                                src="icons/arrow-left.png" height="32px" /></a>&nbsp;</li>
+                        <li id="result_pager_forward" style="display: inline;"><a href="#"><img
+                                src="icons/arrow-right.png" height="32px" /></a></li>
+                    </ul>
+                </div>
+                <br />
+                <table style="width: 100%">
+                    <thead>
+                    <tr>
+                        <td>&nbsp;name</td>
+                        <td>&nbsp;type</td>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <td colspan="2">42 items</td>
+                    </tr>
+                    </tfoot>
+                     <tbody id="result_body" style="color: #4F5D73">
+                    <tr>
+                        <td id="result_item_name">Charly und die Schokoladenfabrik</td>
+                        <td id="result_item_type">video</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </article>
 
-<script id="sourcesTpl" type="text/template">
-    <tbody>
-    {{#sources}}
-    <tr>
-        <td>{{label}}</td>
-        <td>{{file}}</td>
-    </tr>
-    {{/sources}}
-    </tbody>
-    <thead>
-    <tr>
-        <th style="width: 30%;text-align: left">name</th>
-        <th style="width: 70%;text-align: left">pfad</th>
-    </tr>
-    </thead>
-</script>
+    </section>
 
-<script src="js/xbmc-console.js"></script>
+    <aside>
+        <h2>Charly und die Schokladenfabrik</h2>
+    </aside>
+
+    <footer>
+        <p>version 0.1</p>
+    </footer>
+</div>
+<script type="application/dart" src="xbmcconsole.dart"></script>
+<script src="packages/browser/dart.js"></script>
 </body>
 </html>

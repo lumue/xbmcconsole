@@ -5,35 +5,48 @@
     <!-- set global properties for this build -->
     <property name="src" location="src"/>
     <property name="build" location="build"/>
-    <property name="dist"  location="dist"/>
-    <property name="version" value="0.1.0" />
+    <property name="dist" location="dist"/>
+    <property name="version" value="0.1.0"/>
+    <property name="build.application" value="${build}/xbmcconsole"/>
+
     <target name="init">
         <!-- Create the time stamp -->
         <tstamp/>
-        <!-- Create the build directory structure used by compile -->
-        <mkdir dir="${build}/xbmcconsole"/>
     </target>
 
-    <target name="copy" depends="init"
-            description="compile the source " >
-        <copydir src="${src}" dest="${build}/xbmcconsole" />
+    <target name="compile" depends="init"
+            description="compile the source ">
+        <exec executable="pub">
+            <arg value="build"/>
+        </exec>
     </target>
 
-    <target name="dist" depends="clean,copy"
-            description="generate the distribution" >
+    <target name="build" depends="compile">
+        <mkdir dir="${build.application}"/>
+        <move todir="${build.application}">
+            <fileset dir="${build}">
+                <include name="**/*"/>
+            </fileset>
+        </move>
+        <deltree dir="${build.application}/xbmcconsole" />
+        <copydir src="${src}" dest="${build.application}" />
+    </target>
+
+    <target name="dist" depends="clean,build"
+            description="generate the distribution">
         <zip destfile="${dist}/webinterface.xbmcconsole-${version}.zip" basedir="${build}"/>
     </target>
 
     <target name="clean"
-            description="clean up" >
+            description="clean up">
         <!-- Delete the ${build} and ${dist} directory trees -->
         <delete dir="${build}"/>
         <delete dir="${dist}"/>
     </target>
 
-    <target name="deploy" depends="copy">
-        <scp  todir="pi@192.168.1.106:~/.xbmc/addons/xbmcconsole" password="ddl85s" >
-            <fileset dir="${build}/xbmcconsole/" />
+    <target name="deploy" depends="build">
+        <scp todir="pi@192.168.1.106:~/.xbmc/addons/xbmcconsole" password="ddl85s">
+            <fileset dir="${build}/xbmcconsole/"/>
         </scp>
     </target>
 

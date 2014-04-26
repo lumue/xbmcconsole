@@ -1,0 +1,4 @@
+name: xbmcconsole
+description: xbmc webclient
+dependencies:
+  browser: any
