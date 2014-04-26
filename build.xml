@@ -2,12 +2,17 @@
     <description>
         simple example build file
     </description>
+
     <!-- set global properties for this build -->
+    <property file="build.properties"/>
+
     <property name="src" location="src"/>
     <property name="build" location="build"/>
     <property name="dist" location="dist"/>
     <property name="version" value="0.1.0"/>
     <property name="build.application" value="${build}/xbmcconsole"/>
+
+
 
     <target name="init">
         <!-- Create the time stamp -->
@@ -45,7 +50,7 @@
     </target>
 
     <target name="deploy" depends="build">
-        <scp todir="pi@192.168.1.106:~/.xbmc/addons/xbmcconsole" password="ddl85s">
+        <scp todir="${deploy.ssh.user}@${deploy.ssh.host}:~/.xbmc/addons/xbmcconsole" password="${deploy.ssh.password}">
             <fileset dir="${build}/xbmcconsole/"/>
         </scp>
     </target>

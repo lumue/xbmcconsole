@@ -2,3 +2,6 @@ build/*
 /build
 /packages
 /packages
+.project
+.idea
+
